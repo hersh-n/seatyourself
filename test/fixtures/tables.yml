@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  capacity: 1
+  timeslot: 2015-11-17 16:25:38
+  booked: false
+  restaurant_id: 1
+
+two:
+  capacity: 1
+  timeslot: 2015-11-17 16:25:38
+  booked: false
+  restaurant_id: 1
