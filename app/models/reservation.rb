@@ -1,5 +1,5 @@
 class Reservation < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :table
-	belongs_to :restaurant, through: :table
+	has_one :restaurant, through: :table
 end
