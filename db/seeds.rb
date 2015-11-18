@@ -12,4 +12,4 @@ User.create(first_name:"Admin", last_name:"Istrator", email:"admin@app.com", pas
 Restaurant.create(name:"El Caballito Tequila Bar", address:"220 King Street W.", summary:"Tacos and Pitchers", website:"www.elcaballito.ca")
 Table.create(capacity:8, timeslot:Time.now, booked:false)
 Table.create(capacity:2, timeslot:Time.now, booked:false)
-Reservation.create(party_size:8, user:admin)
+Reservation.create(party_size:8)
