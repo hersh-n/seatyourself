@@ -9,25 +9,23 @@ class ReservationsController < ApplicationController
 	end
 
 	def new
-		@reservations = Reservation.new
+		@reservation = Reservation.new
 	end
 
 	def create
-		@reservations = Reservation.new(reservation_params)
-		@reservations.user  = current_user
-		if @reservations.save
+		@reservation = Reservation.new(reservation_params)
+		@reservation.user  = current_user
+		if @reservation.save
 			redirect_to reservations_path
 		else
 			render :new
- 	end
-
+ 		end
 	end
 
 	def destroy
 		@reservation = Reservation.find(params[:id])
 		@reservation.destroy
 		redirect_to reservations_path
-
 	end
 
 	def edit
