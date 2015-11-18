@@ -1,0 +1,44 @@
+User
+
+Need:
+
+	Create a reservation at a table or tables at a restaurant for a specific time
+	Check if a reservation spot is available
+	See a restauarants name, price, address, area
+	See which reservation times are available at all restaurants
+	Search available reservations
+	Log in, Sign up, Sign out
+
+Nice:
+
+	Search reservations at a certain time at restaurants by area
+	Search restaurants by cuisine 
+	See a restaurants menu
+	See reservations
+	Delete a reservation
+
+ENd
+
+Restaurant
+
+
+
+Reservation
+
+	Check if there are reservations during the time slot requested
+		
+		If there are, display them in their containers
+
+		If not, don't display
+
+		If none, display there are none available
+
+
+Table
+
+	Check if there are appropriate tables to fulfil a reservation 
+
+	Iterate through tables, for 2s, 4s, 6s check if there are tables within 1 person size of the requested amount. For 10, anything above 6 will work. Fuck adding table together right now. 
+
+
+
