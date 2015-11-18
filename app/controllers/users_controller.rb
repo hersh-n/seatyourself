@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
-	def new 
+	def new
 		@users = User.new
 	end
 
-	def create 
+	def create
 		@users = User.new
 		if @users.save
 			redirect_to new_user
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 	 	@users = User.find(params[:user_id])
 	end
 
-	
+
 
 
 
