@@ -1,1 +1,8 @@
-<h1>Restaurants View</h1>
+<h1>Make a Free Reservation</h1>
+<<p>Search Bar</p>
+<% @restaurants.each do |restaurant| %>
+	<li>
+		<%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %>
+		<%= link_to image_tag(restaurant.photo), restaurant_path(restaurant.id) %>
+	</li>
+<% end %>
