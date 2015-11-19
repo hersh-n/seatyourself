@@ -1,2 +1,19 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+
+
+<% if flash[:alert] %>
+    <p><%= flash[:alert] %></p>
+<% end %>
+
+<%= form_tag sessions_path do %>
+
+<%= label_tag :email %>
+<%= text_field_tag :email %>
+
+<%= label_tag :password %>
+<%= password_field_tag :password %>
+
+<%= submit_tag "sign in" %>
+
+<% end %>
+
+

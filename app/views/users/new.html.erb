@@ -2,6 +2,14 @@
 
 <%= form_for @user do |f| %>
 
+
+<% if @user.errors.any? %>
+
+	<p>Failed to create user</p>
+	<% @user.errors.full_messages.each do |message| %>
+		<%= message %>
+	<% end %>
+<% end %>
 	<div class="field">
 		<%= f.label :first_name %> <br/>
 		<%= f.text_field :first_name %>
