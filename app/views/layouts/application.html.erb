@@ -10,10 +10,10 @@
 <header>
 
 	<% if current_user %>
-		<%= link_to 'Sign Out', session_path(current_user), method: :delete, %>
-	<%= else %>
-		<%= link_to 'Login' new_session_path %>
-		<%= link_to 'Sign up' new_user_path %>
+		<%= link_to 'Sign Out', session_path(current_user), method: :delete%>
+	<% else %>
+		<%= link_to 'Login', new_session_path %>
+		<%= link_to 'Sign up', new_user_path %>
 
 	<% end %>
 </header>
