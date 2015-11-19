@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			redirect_to new_session_path, notice: "Hey, #{@user.first_name}, thanks for signing up!"
+			session[:user_id] = @user.id
+			redirect_to restaurants_path, notice: "Hey, #{@user.first_name}, thanks for signing up!"
 		else
 			render :action => "new"
 		end
