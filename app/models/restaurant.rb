@@ -7,6 +7,11 @@ class Restaurant < ActiveRecord::Base
 
 	validates :name, presence: true
 
+
+	def is_available?(party_size, time)
+		self.get_current_capacity >= party_size
+	end
+
 	def get_current_capacity(time)
 		capacity = 0
 		available_tables(time).each do |table|
