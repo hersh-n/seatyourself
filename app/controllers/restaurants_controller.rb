@@ -44,4 +44,5 @@ class RestaurantsController < ApplicationController
   def load_tables
     @tables = Restaurant.find(params[:id]).tables
   end
+
 end

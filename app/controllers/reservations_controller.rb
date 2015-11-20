@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+	before_action :load_restaurant
 
 	def index
 		@reservations = current_user.reservations
@@ -20,6 +21,15 @@ class ReservationsController < ApplicationController
 		else
 			render :new
  		end
+	end
+
+	def confirm
+		@reservation = Reservation.find(params[:id])
+		if @reservation.confirm
+			redirect_to reservations_path
+		else
+			render :show, notice: 'Your reservation is stashed but not confirmed.'
+		end
 	end
 
 	def destroy
@@ -45,5 +55,9 @@ class ReservationsController < ApplicationController
 	private
 	def reservation_params
 		params.require(:reservation).permit(:party_size)
+	end
+
+	def load_restaurant
+		@restaurant = Restaurant.find(params[:restaurant_id])
 	end
 end
