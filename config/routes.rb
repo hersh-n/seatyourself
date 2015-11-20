@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'tables/index'
-
-  get 'tables/new'
-
-  get 'tables/create'
-
-  get 'tables/destroy'
-
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :users do
