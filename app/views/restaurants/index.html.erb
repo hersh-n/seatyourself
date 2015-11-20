@@ -1,8 +1,18 @@
-<h1>Make a Free Reservation</h1>
-<p>Search Bar</p>
+
+<div class="search">
+  Find a table for [#] people on [date] at [time].
+</div>
+
+
+
 <% @restaurants.each do |restaurant| %>
-	<li>
-		<%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %>
-		<%= link_to image_tag(restaurant.photo), restaurant_path(restaurant.id) %>
-	</li>
+	<div class="restaurant_result">
+    <div class="float-left">
+      <img id="restaurant_photo" src="http://www.elcaballito.ca/wp-content/uploads/El-Patio-119-e1443114859678.jpg"/>
+    </div>
+    <div class="float-left">
+    <%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %>
+    <%= link_to image_tag(restaurant.photo), restaurant_path(restaurant.id) %>
+    </div>
+  </div>
 <% end %>

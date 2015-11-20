@@ -23,27 +23,82 @@ body{
   margin: 0px;
 }
 
-#logo{
-  height: 50px;
+.main{
+  margin-top:50px;
+  height: 5000px;
 }
-div.header{
-  position:relative;
+
+.header{
+  position:fixed;
+  background-color: white;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
   height:50px;
   border-bottom: 1px solid black;
 }
-div.float-right{
-  padding:10px;
-  border:1px solid black;
-  font-size: 20px;
-  color: white;
-  background-color: grey;
-  float: right;
+
+#logo{
+  height: 50px;
 }
 
-div.float-left{
-  font-size: 20px;
-  padding-right: 10px;
-  border-right: 1px solid black;
+#login{
+  background-color: lime;
+  text-decoration:none;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  border-left:1px solid black;
+  height:100%;
+  width:100px;
+  font-size: 1em;
   color: black;
-  float: left;
 }
+
+#signup{
+  background-color: yellow;
+  text-decoration:none;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  border-left:1px solid black;
+  width:100px;
+  font-size: 1em;
+  color: black;
+}
+
+#signout{
+  background-color: red;
+  text-decoration:none;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  border-left:1px solid black;
+  width:100px;
+  font-size: 1em;
+  color: black;
+}
+
+#profile{
+  background-color: gray;
+  text-decoration:none;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  border-left:1px solid black;
+  width:100px;
+  font-size: 1em;
+  color: black;
+}
+
+.float-left{
+  float: left;
+  height:100%;
+}
+
+.float-right{
+  float: right;
+  height:100%;
+}
+

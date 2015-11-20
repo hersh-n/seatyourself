@@ -1,3 +1,25 @@
 // Place all the styles related to the Restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.search{
+  background-color: #F9F9F9;
+  padding-top:1em;
+  padding-bottom:1em;
+  text-decoration:none;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  font-size:2em;
+  width:100%;
+  font-family: "Lucida Grande", Lucida, sans-serif;
+}
+.restaurant_result{
+  width:100%;
+  height:200px;
+  display:inline-block;
+}
+#restaurant_photo{
+  height:100%;
+  width:400px;
+}
