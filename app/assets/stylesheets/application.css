@@ -21,7 +21,7 @@ body{
 #logo{
   height: 50px;
 }
-div.container{
+div.header{
   position:relative;
   height:50px;
   border-bottom: 1px solid black;
