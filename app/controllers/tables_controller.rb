@@ -3,7 +3,7 @@ class TablesController < ApplicationController
   before_action :load_restaurant
 
   def index
-    @table = Table.all
+    @tables = @restaurant.tables
   end
 
   def show
