@@ -8,3 +8,14 @@
 
 <p><%= @restaurant.website %></p>
 
+<%# Showing this just for display purposes, use the render partial method instead. %>
+
+<ul>
+<% @tables.each do |table| %>
+  <li><%= table.capacity %></li>
+<% end %>
+</ul>
+
+<p>and try the partial</p>
+
+<%= render partial: 'tables/tables' %>
