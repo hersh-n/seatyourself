@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  before_action :load_tables
 
 	def index
   	@restaurants = Restaurant.all
@@ -36,8 +37,11 @@ class RestaurantsController < ApplicationController
   end
 
   private
-
   def restaurant_params
   	params.require(:restaurant).permit(:name, :description, :address, :website, :photo)
+  end
+
+  def load_tables
+    @tables = Restaurant.find(params[:id]).tables
   end
 end

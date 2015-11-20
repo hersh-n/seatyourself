@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 	has_many :tables, through: :reservations
 	has_many :restaurants, through: :tables
 
+  validates :email, presence: true
 end
