@@ -3,5 +3,5 @@ class Reservation < ActiveRecord::Base
 	has_many :tables
 	has_one :restaurant, through: :table
 
-  validates :party_size, numbericality: {only_integer: true}
+  validates :party_size, presence: true, numbericality: {only_integer: true}
 end
