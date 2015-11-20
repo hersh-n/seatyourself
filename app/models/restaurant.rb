@@ -9,15 +9,11 @@ class Restaurant < ActiveRecord::Base
 
 
 	def is_available?(party_size, time)
-		self.get_current_capacity >= party_size
+		self.get_current_capacity(time) >= party_size
 	end
 
 	def get_current_capacity(time)
-		capacity = 0
-		available_tables(time).each do |table|
-			capacity += table.capacity
-		end
-		return capacity
+		available_tables(time).sum(:capacity)
 	end
 
 	def find_tables_for_party(party_size, time)
@@ -34,9 +30,9 @@ class Restaurant < ActiveRecord::Base
 		end
 	end
 
-	def book_tables(table_combination, reservation_id)
+	def book_tables(table_combination, reservation)
 		table_combination.each do |table|
-			table.book(reservation_id)
+			table.book(reservation)
 			table.save
 		end
 	end
