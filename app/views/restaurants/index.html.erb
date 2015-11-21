@@ -9,23 +9,23 @@
 <% @restaurants.each do |restaurant| %>
 	<div class="restaurant_result">
     <div class="photo_container">
-      <img id="restaurant_photo" src="http://www.elcaballito.ca/wp-content/uploads/El-Patio-119-e1443114859678.jpg"/>
+      <img id="restaurant_photo" src=<%=restaurant.photo%> />
     </div>
     <div class="info_container">
       <div id="title">
         <p id="name"> <%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %> </p>
       </div>
       <div class="info">
-        <p id="address"> <%= "#{restaurant.address}" %></p>
+        <p id="address"> <%= restaurant.address %></p>
       </div>
       <div class="info">
         <p id="rating"> <%="#{restaurant.rounded_rating}"%> / 5 </p>
       </div>
       <div class="info">
-        <p id="cost"> <%="#{restaurant.cost_string}"%> </p>
+        <p id="cost"> <%=restaurant.cost_string%> </p>
       </div>
       <div class="info">
-        <p id="cuisine"> Mexican </p>
+        <p id="cuisine"> <%=restaurant.cuisine%> </p>
       </div>
 
       <!-- Need to add in these above values, or anything that we want them to be to the restaurant model -->
