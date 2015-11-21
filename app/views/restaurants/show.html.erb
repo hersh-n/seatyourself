@@ -5,11 +5,13 @@
 	<img id="photo" src=<%=@restaurant.photo%>>
 </div>
 
-<p><%= @restaurant.summary %></p>
+<p id="about"> About <%="#{@restaurant.name}"%></p>
 
-<p><%= @restaurant.address %></p>
+<p class="rest_info" id="summary"><%= @restaurant.summary %></p>
 
-<p><%= @restaurant.website %></p>
+<p class="rest_info" id="address"><%= @restaurant.address %></p>
+
+<p class="rest_info" id="website"><%= @restaurant.website %></p>
 
 <%# Showing this just for display purposes, use the render partial method instead. %>
 
