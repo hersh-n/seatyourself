@@ -3,7 +3,8 @@
   Find a table for [#] people on [date] at [time].
 </div>
 
-
+<div class="spacer">
+</div>
 
 <% @restaurants.each do |restaurant| %>
 	<div class="restaurant_result">
@@ -26,6 +27,8 @@
       <div class="info">
         <p id="cuisine"> Mexican </p>
       </div>
+
+      <!-- Need to add in these above values, or anything that we want them to be to the restaurant model -->
  <!--      <%= link_to image_tag(restaurant.photo), restaurant_path(restaurant.id) %> -->
     </div>
   </div>
