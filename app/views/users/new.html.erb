@@ -5,11 +5,12 @@
 	<%= form_for @user do |f| %>
 
 	<% if @user.errors.any? %>
-
+	<div id="alert">
 		<p>Failed to create user</p>
 		<% @user.errors.full_messages.each do |message| %>
-			<%= message %>
+			<p> <%= message %> <p>
 		<% end %>
+	</div>
 	<% end %>
 		
 		<div class="field">
@@ -29,11 +30,11 @@
 
 		<div class="field">
 			<%= f.label :password %> <br/>
-			<%= f.password_field :password %> <br/>
+			<%= f.password_field :password %>
 		</div>
 
 		<div class="field">
-			<%= f.label :password_confirmation %> </br>
+			<%= f.label :password_confirmation %> <br/>
 			<%= f.password_field :password_confirmation %>
 		</div>
 
