@@ -1,6 +1,11 @@
 
 <div class="search">
-  <%my_date = DateTime.new(2016,1,1,19)%>
+  <% if params[:date] == nil %>
+    <%my_date = DateTime.new(2016,1,1,19)%>
+  <% else %>
+    <%my_date = DateTime.new(params[:date][:year].to_i,params[:date][:month].to_i,params[:date][:day].to_i,params[:date][:hour].to_i)%>
+  <% end %>
+
   <%= form_tag("/restaurants", method: "get") do %>
     <%= label_tag(:party_size, "Find a table for ") %>
     <%= number_field_tag(:party_size, 2, min:1, max:20) %>
@@ -47,9 +52,8 @@
   <% end %>
 
 <%else%>
-  <%time = DateTime.new(params[:date][:year].to_i,params[:date][:month].to_i,params[:date][:day].to_i,params[:date][:hour].to_i)%>
   <% @restaurants.each do |restaurant| %>
-    <% if restaurant.is_available?(params[:party_size].to_i, time) %>
+    <% if restaurant.is_available?(params[:party_size].to_i, my_date) %>
       <div class="restaurant_result">
         <div class="photo_container">
           <img id="restaurant_photo" src=<%=restaurant.photo%> />
