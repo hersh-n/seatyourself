@@ -7,12 +7,26 @@
 
 <% @restaurants.each do |restaurant| %>
 	<div class="restaurant_result">
-    <div class="float-left">
+    <div class="photo_container">
       <img id="restaurant_photo" src="http://www.elcaballito.ca/wp-content/uploads/El-Patio-119-e1443114859678.jpg"/>
     </div>
-    <div class="float-left">
-    <%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %>
-    <%= link_to image_tag(restaurant.photo), restaurant_path(restaurant.id) %>
+    <div class="info_container">
+      <div id="title">
+        <p id="name"> <%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %> </p>
+      </div>
+      <div class="info">
+        <p id="address"> <%= "#{restaurant.address}" %></p>
+      </div>
+      <div class="info">
+        <p id="rating"> 4.7 / 5 </p>
+      </div>
+      <div class="info">
+        <p id="cost"> $$$ </p>
+      </div>
+      <div class="info">
+        <p id="cuisine"> Mexican </p>
+      </div>
+ <!--      <%= link_to image_tag(restaurant.photo), restaurant_path(restaurant.id) %> -->
     </div>
   </div>
 <% end %>

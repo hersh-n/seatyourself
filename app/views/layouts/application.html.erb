@@ -6,7 +6,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
+  <!-- Font for document -->
+<link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
@@ -19,7 +20,7 @@
 
 <body>
   <div class="header">
-    <div class="float-left" id="logo"> <img id="logo" src="/assets/seatyourself.png" /> </div>
+    <div class="float-left" id="logo"><span class="seat">Seat</span><span id="yourself">Yourself</span><span class="seat">.</span> </div>
 
   	<% if current_user %>
   		<div class="float-right" id= "signout"><%= link_to 'Sign Out', session_path(current_user), method: :delete%></div>
