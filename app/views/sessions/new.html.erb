@@ -1,19 +1,27 @@
 
 
-<% if flash[:alert] %>
-    <p><%= flash[:alert] %></p>
-<% end %>
 
-<%= form_tag sessions_path do %>
+<div class="form_holder">
 
-<%= label_tag :email %>
-<%= text_field_tag :email %>
+	<h1 id="signin"> Sign In </h1>
 
-<%= label_tag :password %>
-<%= password_field_tag :password %>
+	<% if flash[:alert] %>
+	    <p id="alert"><%= flash[:alert] %></p>
+	<% end %>
 
-<%= submit_tag "sign in" %>
+	<%= form_tag sessions_path do %>
+		<div class="field">
+			<%= label_tag :email %> <br/>
+			<%= text_field_tag :email %>
+		</div>
+		<div class="field">
+			<%= label_tag :password %> <br/>
+			<%= password_field_tag :password %>
+		</div>
+		<div class="submit">
+			<%= submit_tag "Sign in" %>
+		</div>
+	<% end %>
 
-<% end %>
-
+</div>
 

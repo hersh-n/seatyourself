@@ -1,41 +1,45 @@
-<h1>Make an Account</h1>
+<div class="form_holder">
 
-<%= form_for @user do |f| %>
+<h1 id="makeaccount">Make an Account</h1>
 
+	<%= form_for @user do |f| %>
 
-<% if @user.errors.any? %>
+	<% if @user.errors.any? %>
 
-	<p>Failed to create user</p>
-	<% @user.errors.full_messages.each do |message| %>
-		<%= message %>
+		<p>Failed to create user</p>
+		<% @user.errors.full_messages.each do |message| %>
+			<%= message %>
+		<% end %>
 	<% end %>
-<% end %>
-	<div class="field">
-		<%= f.label :first_name %> <br/>
-		<%= f.text_field :first_name %>
+		
+		<div class="field">
+			<%= f.label :first_name %> <br/>
+			<%= f.text_field :first_name %>
+			</div>
+
+		<div class="field">
+			<%= f.label :last_name %> <br/>
+			<%= f.text_field :last_name %>
 		</div>
 
-	<div class="field">
-		<%= f.label :last_name %> <br/>
-		<%= f.text_field :last_name %>
-	</div>
+		<div class="field">
+			<%= f.label :email %> <br/>
+			<%= f.text_field :email %>
+		</div>
 
-	<div class="field">
-		<%= f.label :email %> <br/>
-		<%= f.text_field :email %>
-	</div>
+		<div class="field">
+			<%= f.label :password %> <br/>
+			<%= f.password_field :password %> <br/>
+		</div>
 
-	<div class="field">
-		<%= f.label :password %> <br/>
-		<%= f.password_field :password %> <br/>
-	</div>
+		<div class="field">
+			<%= f.label :password_confirmation %> </br>
+			<%= f.password_field :password_confirmation %>
+		</div>
 
-	<div class="field">
-		<%= f.label :password_confirmation %> </br>
-		<%= f.password_field :password_confirmation %>
-	</div>
-
-	<div class="submit">
-		<%= submit_tag("Sign Up")%>
-	</div>
-<% end %>
+		<div class="submit">
+			<%= submit_tag("Sign Up")%>
+		</div>
+		
+	<% end %>
+</div>
