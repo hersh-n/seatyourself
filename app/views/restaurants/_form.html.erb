@@ -1,0 +1,50 @@
+<%= form_for @restaurant do |f| %>
+
+  <% if @restaurant.errors.any? %>
+
+    <p>Failed to create restaurant</p>
+    <% @restaurant.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
+
+    <div class="field">
+      <%= f.label :name %> <br/>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :address %> <br/>
+      <%= f.text_field :address %>
+    </div>
+
+    <div class="field">
+      <%= f.label :website %> <br/>
+      <%= f.text_field :website %>
+    </div>
+
+    <div class="field">
+      <%= f.label :cuisine %> <br/>
+      <%= f.text_field :cuisine %>
+    </div>
+
+    <div class="field">
+      <%= f.label :cost, "Cost (1 - 5)" %> <br/>
+      <%= f.number_field(:cost, value:3, min:1, max:5) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :rating, "Rating (0.0 - 5.0)" %> <br/>
+      <%= f.number_field(:rating, value:2.5, :step => 0.1, min:0.0, max:5.0) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :photo, "Photo URL"%> <br/>
+      <%= f.text_field :photo %>
+    </div>
+
+    <div class="submit">
+      <%= submit_tag("Sign Up")%>
+    </div>
+
+  <% end %>

@@ -15,13 +15,8 @@
 
 <%# Showing this just for display purposes, use the render partial method instead. %>
 
-<ul>
-<% @tables.each do |table| %>
-  <li><%= table.capacity %></li>
-<% end %>
-</ul>
-
-<p>and try the partial</p>
-
 <%= render partial: 'tables/tables' %>
+
+<%= link_to 'Add a table.', new_restaurant_table_path(@restaurant), method:'get' %>
+
 </div>

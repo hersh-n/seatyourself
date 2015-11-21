@@ -1,35 +1,81 @@
 
 <div class="search">
-  Find a table for [#] people on [date] at [time].
+  <% if params[:date] == nil %>
+    <%my_date = DateTime.new(2016,1,1,19)%>
+  <% else %>
+    <%my_date = DateTime.new(params[:date][:year].to_i,params[:date][:month].to_i,params[:date][:day].to_i,params[:date][:hour].to_i)%>
+  <% end %>
+
+  <%= form_tag("/restaurants", method: "get") do %>
+    <%= label_tag(:party_size, "Find a table for ") %>
+    <%= number_field_tag(:party_size, 2, min:1, max:20) %>
+    <%= label_tag(:select_day, " on ") %>
+    <%= select_day(my_date) %>
+    <%= label_tag(:select_month, "") %>
+    <%= select_month(my_date) %>
+    <%= label_tag(:select_year, "") %>
+    <%= select_year(my_date) %>
+    <%= label_tag(:select_hour, " at ") %>
+    <%= select_hour(my_date, ampm:true) %>
+    .
+    <%= submit_tag("Search") %>
+  <% end %>
 </div>
 
 <div class="spacer">
 </div>
 
-<% @restaurants.each do |restaurant| %>
-	<div class="restaurant_result">
-    <div class="photo_container">
-      <img id="restaurant_photo" src=<%=restaurant.photo%> />
+<% if params[:date] == nil %>
+  <% @restaurants.each do |restaurant| %>
+  	<div class="restaurant_result">
+      <div class="photo_container">
+        <img id="restaurant_photo" src=<%=restaurant.photo%> />
+      </div>
+      <div class="info_container">
+        <div id="title">
+          <p id="name"> <%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %> </p>
+        </div>
+        <div class="info">
+          <p id="address"> <%= restaurant.address %></p>
+        </div>
+        <div class="info">
+          <p id="rating"> <%="#{restaurant.rounded_rating}"%> / 5 </p>
+        </div>
+        <div class="info">
+          <p id="cost"> <%=restaurant.cost_string%> </p>
+        </div>
+        <div class="info">
+          <p id="cuisine"> <%=restaurant.cuisine%> </p>
+        </div>
+      </div>
     </div>
-    <div class="info_container">
-      <div id="title">
-        <p id="name"> <%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %> </p>
-      </div>
-      <div class="info">
-        <p id="address"> <%= restaurant.address %></p>
-      </div>
-      <div class="info">
-        <p id="rating"> <%="#{restaurant.rounded_rating}"%> / 5 </p>
-      </div>
-      <div class="info">
-        <p id="cost"> <%=restaurant.cost_string%> </p>
-      </div>
-      <div class="info">
-        <p id="cuisine"> <%=restaurant.cuisine%> </p>
-      </div>
+  <% end %>
 
-      <!-- Need to add in these above values, or anything that we want them to be to the restaurant model -->
- <!--      <%= link_to image_tag(restaurant.photo), restaurant_path(restaurant.id) %> -->
-    </div>
-  </div>
+<%else%>
+  <% @restaurants.each do |restaurant| %>
+    <% if restaurant.is_available?(params[:party_size].to_i, my_date) %>
+      <div class="restaurant_result">
+        <div class="photo_container">
+          <img id="restaurant_photo" src=<%=restaurant.photo%> />
+        </div>
+        <div class="info_container">
+          <div id="title">
+            <p id="name"> <%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %> </p>
+          </div>
+          <div class="info">
+            <p id="address"> <%= restaurant.address %></p>
+          </div>
+          <div class="info">
+            <p id="rating"> <%="#{restaurant.rounded_rating}"%> / 5 </p>
+          </div>
+          <div class="info">
+            <p id="cost"> <%=restaurant.cost_string%> </p>
+          </div>
+          <div class="info">
+            <p id="cuisine"> <%=restaurant.cuisine%> </p>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  <%end%>
 <% end %>
