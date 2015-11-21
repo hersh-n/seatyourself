@@ -1,11 +1,10 @@
-
-<div class="search">
-  <% if params[:date] == nil %>
+<% if params[:date] == nil %>
     <%my_date = DateTime.new(2016,1,1,19)%>
   <% else %>
     <%my_date = DateTime.new(params[:date][:year].to_i,params[:date][:month].to_i,params[:date][:day].to_i,params[:date][:hour].to_i)%>
   <% end %>
 
+<div class="search">
   <%= form_tag("/restaurants", method: "get") do %>
     <%= label_tag(:party_size, "Find a table for ") %>
     <%= number_field_tag(:party_size, 2, min:1, max:20) %>
