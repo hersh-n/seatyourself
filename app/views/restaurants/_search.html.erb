@@ -1,0 +1,16 @@
+<div class="search">
+  <%= form_tag("/restaurants", method: "get") do %>
+    <%= label_tag(:party_size, "Find a table for ") %>
+    <%= number_field_tag(:party_size, 2, min:1, max:20) %>
+    <%= label_tag(:select_day, " on ") %>
+    <%= select_day(my_date) %>
+    <%= label_tag(:select_month, "") %>
+    <%= select_month(my_date) %>
+    <%= label_tag(:select_year, "") %>
+    <%= select_year(my_date) %>
+    <%= label_tag(:select_hour, " at ") %>
+    <%= select_hour(my_date, ampm:true) %>
+    .
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>
