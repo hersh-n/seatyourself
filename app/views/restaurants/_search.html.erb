@@ -1,9 +1,0 @@
-<div class="search">
-  <%my_date_time = Time.now%>
-  <%= form_tag("/restaurants", method: "get") do %>
-    <%= label_tag(:search_time, "Search DateTime:") %>
-    <%= select_datetime(my_date_time, order: [:year, :month, :day]) %>
-    <%= submit_tag("Search") %>
-  <% end %>
-
-</div>

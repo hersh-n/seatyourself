@@ -1,2 +1,18 @@
-<h1>Tables#new</h1>
-<p>Find me in app/views/tables/new.html.erb</p>
+<p>Add a new table below.</p>
+
+<%= form_for [@restaurant, @table] do |f|%>
+  <% time = DateTime.new(2016,1,1,19) %>
+
+  <div class="field">
+      <%= f.label :capacity%> <br/>
+      <%= f.number_field(:capacity, value:6, min:1, max:16) %>
+  </div>
+  <div class="field">
+      <%= f.label :timeslot%> <br/>
+      <%= f.datetime_select(:timeslot, default: time) %>
+  </div>
+  <div class="submit">
+    <%= submit_tag("Create Table")%>
+  </div>
+
+<% end %>

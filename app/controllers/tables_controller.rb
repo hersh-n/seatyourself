@@ -1,5 +1,4 @@
 class TablesController < ApplicationController
-  before_action :ensure_logged_in, only: [:create, :destroy]
   before_action :load_restaurant
 
   def index
@@ -18,7 +17,7 @@ class TablesController < ApplicationController
     @table = @restaurant.tables.build(table_params)
 
     if @table.save
-      redirect_to restaurant_path, notice: 'Successfully added the desired table(s)'
+      redirect_to restaurant_path(@restaurant), notice: 'Successfully added the desired table(s)'
     else
       flash[:alert] = 'You cannot create a table without a capacity'
       redirect_to restaurant_path(@restaurant)
@@ -32,7 +31,7 @@ class TablesController < ApplicationController
 
   private
   def table_params
-    params.require(:table).permit(:party_size)
+    params.require(:table).permit(:capacity, :timeslot)
   end
 
   def load_restaurant

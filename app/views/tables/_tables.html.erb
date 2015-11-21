@@ -1,7 +1,5 @@
-<p>Each point "li" is a table, each number is a capacity.</p>
-
 <ul>
 <% @tables.each do |table| %>
-  <li><%= table.capacity %></li>
+  <li><%= "#{table.timeslot} : #{table.capacity}" %></li>
 <% end %>
 </ul>
