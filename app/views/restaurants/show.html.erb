@@ -1,9 +1,8 @@
 <div class="content">
 <h1 id="restaurant_name"><%= @restaurant.name %></h1>
 
-<div class="display_photo">	
-	<img id="photo" src="http://www.elcaballito.ca/wp-content/uploads/El-Patio-119-e1443114859678.jpg">
-	<%= image_tag(@restaurant.photo) %>
+<div class="display_photo">
+	<img id="photo" src=<%=@restaurant.photo%>>
 </div>
 
 <p><%= @restaurant.summary %></p>

@@ -1,6 +1,6 @@
 <div class="form_holder">
 
-<h1 id="makeaccount">Make an Account</h1>
+<h1 id="signin">Make an Account</h1>
 
 	<%= form_for @user do |f| %>
 
@@ -12,7 +12,7 @@
 		<% end %>
 	</div>
 	<% end %>
-		
+
 		<div class="field">
 			<%= f.label :first_name %> <br/>
 			<%= f.text_field :first_name %>
@@ -41,6 +41,6 @@
 		<div class="submit">
 			<%= submit_tag("Sign Up")%>
 		</div>
-		
+
 	<% end %>
 </div>
