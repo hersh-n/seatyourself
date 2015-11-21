@@ -19,10 +19,10 @@
         <p id="address"> <%= "#{restaurant.address}" %></p>
       </div>
       <div class="info">
-        <p id="rating"> 4.7 / 5 </p>
+        <p id="rating"> <%="#{restaurant.rounded_rating}"%> / 5 </p>
       </div>
       <div class="info">
-        <p id="cost"> $$$ </p>
+        <p id="cost"> <%="#{restaurant.cost_string}"%> </p>
       </div>
       <div class="info">
         <p id="cuisine"> Mexican </p>
