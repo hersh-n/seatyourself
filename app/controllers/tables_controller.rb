@@ -31,7 +31,7 @@ class TablesController < ApplicationController
 
   private
   def table_params
-    params.require(:table).permit(:capacity, :timeslot)
+    params.require(:table).permit(:capacity, :timeslot, :booked)
   end
 
   def load_restaurant
