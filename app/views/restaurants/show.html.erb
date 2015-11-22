@@ -41,7 +41,12 @@
 
 <%# Showing this just for display purposes, use the render partial method instead. %>
 
-<h2><%=link_to 'Reserve now!', new_restaurant_reservation_path(@restaurant), method:'get'%></h2>
+<%=link_to new_restaurant_reservation_path(@restaurant), method:'get' do %>
+<div id="reservation">
+  Reserve now!
+</div>
+<%end%>
+
 <h3>Seats remaining: <%= @restaurant.get_current_capacity(my_date) %></h3>
 
 <%= link_to 'Add a table.', new_restaurant_table_path(@restaurant), method:'get' %>
