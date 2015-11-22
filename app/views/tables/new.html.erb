@@ -11,6 +11,7 @@
       <%= f.label :timeslot%> <br/>
       <%= f.datetime_select(:timeslot, default: time) %>
   </div>
+  <%= f.hidden_field(:booked, value: false) %>
   <div class="submit">
     <%= submit_tag("Create Table")%>
   </div>
