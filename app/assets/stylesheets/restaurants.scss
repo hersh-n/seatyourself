@@ -164,8 +164,17 @@ border: 2px solid gold;
   border-radius: 5px;
   font-size: 2em;
   line-height: 90px;
-    a:hover {
+
+  a {
+  text-decoration: none;
+  color: white;
+  }
+  a:hover {
     text-decoration: none;
     color: black;
     }
+
+   
 }
+
+ 
