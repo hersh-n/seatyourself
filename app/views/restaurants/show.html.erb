@@ -36,6 +36,22 @@
 
 <p class="rest_info" id="address"><%= @restaurant.address %></p>
 
+<% if @restaurant.name == "El Caballito Tequila Bar" %>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.0418811522563!2d-79.38918948447603!3d43.64729697912152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d19df0e851%3A0xbca9513dc3a259c7!2sEl+Caballito+Tequila+Bar!5e0!3m2!1sen!2sca!4v1448220705057" width="500" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+<% elsif @restaurant.name == "Artisano Bakery Cafe" %>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13449.430673290772!2d-79.40006326689036!3d43.65224441286302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d19cea5b0b%3A0x258ade270e65fcbb!2sArtisano+Bakery+Cafe!5e0!3m2!1sen!2sca!4v1448221031802" width="500" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+<% elsif @restaurant.name == "Canoe" %>
+
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23094.432980247944!2d-79.40006326903307!3d43.65224350648618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d2d0792a29%3A0x86a52a26df8b2ee8!2sCanoe!5e0!3m2!1sen!2sca!4v1448221160483" width="500" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+<% elsif @restaurant.name == "Buca" %>
+
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.1666368496603!2d-79.40267798447621!3d43.64470127912158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34de58675fb7%3A0xebcebfaa8491dcd9!2sBuca!5e0!3m2!1sen!2sca!4v1448221268151" width="500" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+<% end %>
+
+
+
 <p class="rest_info" id="website"><%= @restaurant.website %></p>
 
 <%# Showing this just for display purposes, use the render partial method instead. %>
