@@ -4,44 +4,6 @@
 
   /* Restauarants Home */
 
-.search{
-  height: 100px;
-  position: fixed;
-  background-color: #DAA520;
-  padding-top:1em;
-  padding-bottom:1em;
-  text-decoration:none;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 50px;
-  font-size:2em;
-  width:100%;
-  font-family: "Lucida Grande", Lucida, sans-serif;
-  color: black;
-  z-index:1;
-  border-bottom: 3px solid white;
-
-}
-
-.searchbutton {
-
-  border: black 2px solid;
-  background: black;
-  color: white;
-  font-size: 0.75em;
-  transition: all 0.3s ease 0s;
-
-}
-
-.searchbutton:hover {
-
-  border: black 2px solid;
-  background: black;
-  color: white;
-  font-size: 0.75em;
-  border-radius: 0.75em;
-
-}
 
 
 .spacer{
