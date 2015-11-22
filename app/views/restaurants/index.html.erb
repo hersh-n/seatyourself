@@ -16,8 +16,7 @@
     <%= select_year(my_date) %>
     <%= label_tag(:select_hour, " at ") %>
     <%= select_hour(my_date, ampm:true) %>
-    .
-    <%= submit_tag("Search") %>
+    <%= submit_tag "Search", class: "searchbutton" %>
   <% end %>
 </div>
 

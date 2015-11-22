@@ -16,8 +16,7 @@
     <%= select_year(my_date) %>
     <%= label_tag(:select_hour, " at ") %>
     <%= select_hour(my_date, ampm:true) %>
-    .
-    <%= submit_tag("Search") %>
+    <%= submit_tag "Search", class: "searchbutton" %>
   <% end %>
 </div>
 
@@ -41,11 +40,9 @@
 
 <%# Showing this just for display purposes, use the render partial method instead. %>
 
-<%=link_to new_restaurant_reservation_path(@restaurant), method:'get' do %>
-<div id="reservation">
-  Reserve now!
-</div>
-<%end%>
+<%=link_to "Reserve Now", new_restaurant_reservation_path(@restaurant), method:'get', id: "reservation" %>
+
+
 
 <h3>Seats remaining: <%= @restaurant.get_current_capacity(my_date) %></h3>
 
