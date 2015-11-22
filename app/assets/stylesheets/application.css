@@ -229,6 +229,7 @@ body{
   color: white;
   font-size: 0.75em;
   transition: all 0.3s ease 0s;
+  border-radius: 0.75em;
 
 }
 
@@ -236,9 +237,9 @@ body{
 
   border: black 2px solid;
   background: black;
-  color: white;
+  color: #DAA520;
   font-size: 0.75em;
-  border-radius: 0.75em;
+
 
 }
 
