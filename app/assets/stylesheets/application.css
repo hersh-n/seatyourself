@@ -126,6 +126,8 @@ body{
   height:100%;
   width:100px;
   font-size: 1.5em;
+  color: black;
+  font-weight: bold;
   transition: all 0.3s ease 0s;
 }
 
@@ -134,11 +136,6 @@ body{
   background-color: #b2871a;
 }
 
-
-#login a {
-  text-decoration: none;
-  color: black;
-}
 
 #signup{
   background-color: #DAA520;
@@ -150,6 +147,7 @@ body{
   width:100px;
   font-size: 1.5em;
   color: black;
+  font-weight: bold;
   transition: all 0.3s ease 0s;
 }
 
@@ -157,10 +155,6 @@ body{
   background-color: #b2871a;
 }
 
-#signup a {
-  text-decoration: none;
-  color: black;
-}
 #signout{
   background-color: #DAA520;
   text-decoration:none;
@@ -170,12 +164,15 @@ body{
   border-left:1px solid black;
   width:100px;
   font-size: 1.5em;
+  font-weight: bold;
+  color: black;
+  transition: all 0.3s ease 0s;
+
 }
 
-#signout a{
-  text-decoration: none;
-  color: black;
-  }
+#signout:hover{
+  background-color: #b2871a;
+}
 
 #profile{
   background-color: #DAA520;
@@ -187,6 +184,11 @@ body{
   width:100px;
   font-size: 1.5em;
   color: black;
+  font-weight: bold;
+  transition: all 0.3s ease 0s;
+}
+#profile:hover{
+  background-color: #b2871a;
 }
 
 #profile a {
