@@ -37,6 +37,18 @@ class Restaurant < ActiveRecord::Base
 		end
 	end
 
+	def rounded_rating
+		self.rating.round(1)
+	end
+
+	def cost_string
+		dollar_signs = ""
+		(1..self.cost).each do |i|
+			dollar_signs << "$"
+		end
+		dollar_signs
+	end
+
 	private
 	def available_tables(time)
 		self.tables.order(capacity: :asc).where(booked: false, timeslot: time)

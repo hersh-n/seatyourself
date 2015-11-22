@@ -2,8 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+  /* Restauarants Home */
+
 .search{
-  background-color: #F9F9F9;
+  height: 100px;
+  position: fixed;
+  background-color: #DAA520;
   padding-top:1em;
   padding-bottom:1em;
   text-decoration:none;
@@ -13,13 +17,155 @@
   font-size:2em;
   width:100%;
   font-family: "Lucida Grande", Lucida, sans-serif;
+  color: black;
+  z-index:1;
+  border-bottom: 3px solid white;
+
 }
+
+.spacer{
+  height: 120px;
+  width: 100%;
+}
+
 .restaurant_result{
   width:100%;
   height:200px;
-  display:inline-block;
+  display:flex;
+  margin-bottom: 10px;
 }
+
+.photo_container{
+  width: 40%;
+  height: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
 #restaurant_photo{
-  height:100%;
-  width:400px;
+  width: 100%;
+  bottom: 35px;
+  position: relative;
+}
+
+.info_container{
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 100%;
+}
+
+#title {
+  width: 100%;
+  height: 60%;
+  background-color: #141414;
+  text-align: center;
+  font-size: 4em;
+    a {
+    text-decoration: none;
+    color: #DAA520;
+    }
+    #name {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    }
+}
+
+.info {
+  width: 25%;
+  height: 40%;
+  background-color: #141414;
+  text-align: center;
+  font-size: 1em;
+  word-wrap: normal;
+  color: white;
+    #address {
+      padding-top: 20%;
+      padding-bottom: 20%;
+    }
+    #rating {
+      padding-top: 20%;
+      padding-bottom: 20%;
+      font-size: 2em;
+    }
+    #cost {
+      padding-top: 20%;
+      padding-bottom: 20%;
+      font-size: 2em;
+    }
+    #cuisine {
+      padding-top: 20%;
+      padding-bottom: 20%;
+      font-size: 2em;
+    }
+
+}
+
+/* Restaurant Show */
+
+.content {
+padding: 20px;
+width: 600px;
+margin-top: 25px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 100px;
+text-align: center;
+border: 2px solid gold;
+}
+
+.display_photo{
+
+  max-height: 300px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+
+    #photo {
+    max-height: 300px;
+    max-width: 500px;
+    }
+}
+
+#restaurant_name {
+  border-bottom: 1px solid black;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#about {
+  font-size: 2em;
+  width: 500px;
+  border-bottom: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rest_info {
+  font-size: 1.5em;
+  color: black;
+  width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#reservation {
+  height: 90px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #DAA520;
+  color: white;
+  border-radius: 5px;
+  font-size: 2em;
+  line-height: 90px;
+    a:hover {
+    text-decoration: none;
+    color: black;
+    }
 }

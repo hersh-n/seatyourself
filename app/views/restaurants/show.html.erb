@@ -1,21 +1,54 @@
-<h1><%= @restaurant.name %></h1>
+<% if params[:date] == nil %>
+  <%my_date = DateTime.new(2016,1,1,19)%>
+<% else %>
+  <%my_date = DateTime.new(params[:date][:year].to_i,params[:date][:month].to_i,params[:date][:day].to_i,params[:date][:hour].to_i)%>
+<% end %>
 
-<%= image_tag(@restaurant.photo) %>
+<div class="search">
+  <%= form_tag("/restaurants/#{@restaurant.id}", method: "get") do %>
+    <%= label_tag(:party_size, "Find a table for ") %>
+    <%= number_field_tag(:party_size, 2, min:1, max:20) %>
+    <%= label_tag(:select_day, " on ") %>
+    <%= select_day(my_date) %>
+    <%= label_tag(:select_month, "") %>
+    <%= select_month(my_date) %>
+    <%= label_tag(:select_year, "") %>
+    <%= select_year(my_date) %>
+    <%= label_tag(:select_hour, " at ") %>
+    <%= select_hour(my_date, ampm:true) %>
+    .
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>
 
-<p><%= @restaurant.summary %></p>
+<div class="spacer">
+</div>
 
-<p><%= @restaurant.address %></p>
+<div class="content">
+<h1 id="restaurant_name"><%= @restaurant.name %></h1>
 
-<p><%= @restaurant.website %></p>
+<div class="display_photo">
+	<img id="photo" src=<%=@restaurant.photo%>>
+</div>
+
+<p id="about"> About <%="#{@restaurant.name}"%></p>
+
+<p class="rest_info" id="summary"><%= @restaurant.summary %></p>
+
+<p class="rest_info" id="address"><%= @restaurant.address %></p>
+
+<p class="rest_info" id="website"><%= @restaurant.website %></p>
 
 <%# Showing this just for display purposes, use the render partial method instead. %>
 
-<ul>
-<% @tables.each do |table| %>
-  <li><%= table.capacity %></li>
-<% end %>
-</ul>
+<%=link_to new_restaurant_reservation_path(@restaurant), method:'get' do %>
+<div id="reservation">
+  Reserve now!
+</div>
+<%end%>
 
-<p>and try the partial</p>
+<h3>Seats remaining: <%= @restaurant.get_current_capacity(my_date) %></h3>
 
-<%= render partial: 'tables/tables' %>
+<%= link_to 'Add a table.', new_restaurant_table_path(@restaurant), method:'get' %>
+
+</div>

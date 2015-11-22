@@ -1,3 +1,18 @@
-<p>This is where you can add tables.</p>
+<p>Add a new table below.</p>
 
-<p>This section should have a form that allows you to submit a number of tables and their capacity</p>
+<%= form_for [@table] do |f|%>
+  <%= time = DateTime.new(2016,1,1,19) %>
+
+  <div class="field">
+      <%= f.label :capacity%> <br/>
+      <%= f.number_field(:capacity, value:6, min:1, max:16) %>
+  </div>
+  <div class="field">
+      <%= f.label :timeslot%> <br/>
+      <%= f.datetime_field(:timeslot) %>
+  </div>
+  <div class="submit">
+    <%= submit_tag("Create Table")%>
+  </div>
+
+<% end %>
