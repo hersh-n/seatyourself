@@ -245,3 +245,54 @@ body{
 
 }
 
+
+select {
+  display: inline-block;
+  border: 2px solid #bbb;
+  padding: 4px 3px 3px 5px;
+  margin: 0;
+  font: inherit;
+  outline:none; /* remove focus ring from Webkit */
+  line-height: 1.2;
+  background: #f8f8f8;
+  font-size: 0.5em;
+
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+    }
+
+    /* for Webkit's CSS-only solution */
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        select {
+            padding-right:30px;
+        }
+    }
+
+    /* Since we removed the default focus styles, we have to add our own */
+  select:focus {
+    -webkit-box-shadow: 0 0 3px 1px black;
+    -moz-box-shadow: 0 0 3px 1px black;
+    box-shadow: 0 0 3px 1px black;
+    }
+
+    /* Select arrow styling */
+  select:after {
+    content: "▼";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 60%;
+    line-height: 30px;
+    padding: 0 7px;
+    background: #bbb;
+    color: white;
+
+    pointer-events:none;
+
+    -webkit-border-radius: 0 6px 6px 0;
+    -moz-border-radius: 0 6px 6px 0;
+    border-radius: 0 6px 6px 0;
+    }
+
