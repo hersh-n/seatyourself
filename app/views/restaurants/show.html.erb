@@ -5,9 +5,9 @@
 <% end %>
 
 <div class="search">
-  <%= form_tag("/restaurants", method: "get") do %>
-    <%= label_tag(:party_size, "Find a table for ") %>
-    <%= select_tag(:party_size, options_for_select([ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" ], "2")) %>
+  <%= form_tag("/restaurants/#{@restaurant.id}", method: "get") do %>
+    <%= label_tag(:party_size, "Is there room for ") %>
+    <%= select_tag(:party_size, options_for_select([ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" ], params[:party_size])) %>
     <%= label_tag(:select_month, " on ") %>
     <%= select_month(my_date) %>
     <%= label_tag(:select_day, "") %>
@@ -16,7 +16,8 @@
     <%= select_year(my_date) %>
     <%= label_tag(:select_hour, " at ") %>
     <%= select_hour(my_date, ampm:true) %>
-    <%= submit_tag "Search", class: "searchbutton" %>
+    ?
+    <%= submit_tag "Check", class: "searchbutton" %>
   <% end %>
 </div>
 
@@ -55,7 +56,9 @@
 
 <a href="<%=@restaurant.website%>" <p class="rest_info" id="website">Visit Website</p></a>
 
+<% if :party_size.to_s.to_i <=  @restaurant.get_current_capacity(my_date) %>
 <%=link_to "Reserve Now", new_restaurant_reservation_path(@restaurant), method:'get', id: "reservation" %>
+<% end %>
 
 
 <h3>Seats remaining: <%= @restaurant.get_current_capacity(my_date) %></h3>
