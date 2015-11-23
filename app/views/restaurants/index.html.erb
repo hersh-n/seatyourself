@@ -11,11 +11,11 @@
 <div class="search">
   <%= form_tag("/restaurants", method: "get") do %>
     <%= label_tag(:party_size, "Find a table for ") %>
-    <%= number_field_tag(:party_size, 2, min:1, max:20) %>
-    <%= label_tag(:select_day, " on ") %>
-    <%= select_day(my_date) %>
-    <%= label_tag(:select_month, "") %>
+    <%= select_tag(:party_size, options_for_select([ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" ], "2")) %>
+    <%= label_tag(:select_month, " on ") %>
     <%= select_month(my_date) %>
+    <%= label_tag(:select_day, "") %>
+    <%= select_day(my_date) %>
     <%= label_tag(:select_year, "") %>
     <%= select_year(my_date) %>
     <%= label_tag(:select_hour, " at ") %>
