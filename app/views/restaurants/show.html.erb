@@ -27,7 +27,7 @@
   <% if params[:party_size].to_s.to_i <=  @restaurant.get_current_capacity(date) %>
     <%=link_to "Reserve Now", new_restaurant_reservation_path(@restaurant, :party_size => params[:party_size], ), id: "reservation" %>
   <% else %>
-    There isn't enough room for your party. Try another date!
+    There isn't enough room for your party at the time above. Try another!
   <% end %>
   <h3>Seats remaining: <%= @restaurant.get_current_capacity(date) %></h3>
 
