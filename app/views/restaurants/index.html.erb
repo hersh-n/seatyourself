@@ -2,24 +2,26 @@
    body { background: black !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
 </style>
 
+<% now = DateTime.now + 1.hours %>
+
 <% if params[:date] == nil %>
-    <%my_date = DateTime.new(2016,1,1,19)%>
+    <%date = DateTime.now + 1.hours%>
   <% else %>
-    <%my_date = DateTime.new(params[:date][:year].to_i,params[:date][:month].to_i,params[:date][:day].to_i,params[:date][:hour].to_i)%>
+    <%date = DateTime.new(params[:date][:year].to_i,params[:date][:month].to_i,params[:date][:day].to_i,params[:date][:hour].to_i)%>
   <% end %>
 
 <div class="search">
   <%= form_tag("/restaurants", method: "get") do %>
     <%= label_tag(:party_size, "Find a table for ") %>
     <%= select_tag(:party_size, options_for_select([ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" ], "2")) %>
-    <%= label_tag(:select_month, " on ") %>
-    <%= select_month(my_date) %>
-    <%= label_tag(:select_day, "") %>
-    <%= select_day(my_date) %>
-    <%= label_tag(:select_year, "") %>
-    <%= select_year(my_date) %>
-    <%= label_tag(:select_hour, " at ") %>
-    <%= select_hour(my_date, ampm:true) %>
+    <%= label_tag(:month, " on ") %>
+    <%= select_month(date) %>
+    <%= label_tag(:day, "") %>
+    <%= select_day(date) %>
+    <%= label_tag(:year, "") %>
+    <%= select_year(date) %>
+    <%= label_tag(:hour, " at ") %>
+    <%= select_hour(date, ampm:true) %>
     <%= submit_tag "Search", class: "searchbutton" %>
   <% end %>
 </div>
@@ -27,42 +29,18 @@
 <div class="spacer">
 </div>
 
-<% if params[:date] == nil %>
+<% if params[:date] != nil %>
   <% @restaurants.each do |restaurant| %>
-  	<div class="restaurant_result">
-      <div class="photo_container">
-        <img id="restaurant_photo" src=<%=restaurant.photo%> />
-      </div>
-      <div class="info_container">
-        <div id="title">
-          <p id="name"> <%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %> </p>
-        </div>
-        <div class="info">
-          <p id="address"> <%= restaurant.address %></p>
-        </div>
-        <div class="info">
-          <p id="rating"> <%="#{restaurant.rounded_rating}"%> / 5 </p>
-        </div>
-        <div class="info">
-          <p id="cost"> <%=restaurant.cost_string%> </p>
-        </div>
-        <div class="info">
-          <p id="cuisine"> <%=restaurant.cuisine%> </p>
-        </div>
-      </div>
-    </div>
-  <% end %>
-
-<%else%>
-  <% @restaurants.each do |restaurant| %>
-    <% if restaurant.is_available?(params[:party_size].to_i, my_date) %>
+    <% if restaurant.is_available?(params[:party_size].to_i, date) %>
       <div class="restaurant_result">
         <div class="photo_container">
           <img id="restaurant_photo" src=<%=restaurant.photo%> />
         </div>
         <div class="info_container">
           <div id="title">
-            <p id="name"> <%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %> </p>
+            <% if params[:date] != nil %>
+              <p id="name"> <%= link_to "#{restaurant.name}", restaurant_path(restaurant.id, :party_size => params[:party_size], :date => {year: date.year, month: date.month, day: date.day, hour: date.hour}) %> </p>
+            <% end %>
           </div>
           <div class="info">
             <p id="address"> <%= restaurant.address %></p>
