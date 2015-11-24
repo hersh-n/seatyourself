@@ -23,7 +23,7 @@ class ReservationsController < ApplicationController
 		@timeslot = DateTime.new(params[:reservation][:year].to_i, params[:reservation][:month].to_i, params[:reservation][:day].to_i, params[:reservation][:hour].to_i)
 		if @reservation.save
 			@restaurant.book_tables(@restaurant.find_tables_for_party(@party_size, @timeslot), @reservation.id)
-			redirect_to restaurants_path
+			redirect_to user_path(@reservation.user_id)
 		else
 			render :new
  		end
