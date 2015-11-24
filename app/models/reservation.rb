@@ -1,7 +1,7 @@
 class Reservation < ActiveRecord::Base
 	belongs_to :user
-	has_many :tables
-	has_one :restaurant, through: :table
+  belongs_to :restaurant
+	has_many :tables, through: :restaurant
 
   validates :party_size, presence: true, numericality: {only_integer: true}
 end
