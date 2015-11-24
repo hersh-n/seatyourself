@@ -9,4 +9,9 @@ class Table < ActiveRecord::Base
 		self.booked = true
 		self.reservation_id = reservation_id
 	end
+
+    def unbook()
+        self.booked = false
+        self.reservation_id = nil
+    end
 end

@@ -31,6 +31,10 @@ class ReservationsController < ApplicationController
 
 	def destroy
 		@reservation = Reservation.find(params[:id])
+		@reservation.tables.each do |table|
+			table.unbook
+			table.save
+		end
 		@reservation.destroy
 		redirect_to user_path(current_user)
 	end
