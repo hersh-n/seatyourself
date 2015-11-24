@@ -230,9 +230,14 @@ body{
   border: black 2px solid;
   background: black;
   color: white;
-  font-size: 0.75em;
+  font-size: .75em;
   transition: all 0.3s ease 0s;
-  border-radius: 0.75em;
+  border-radius: 5px;
+  margin-left: 20px;
+  line-height: 35px;
+  height: 35px;
+  width: 150px;
+
 
 }
 
