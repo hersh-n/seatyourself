@@ -6,7 +6,7 @@ Make reservation using the params and current_user! -->
 <div id="my_profile"> Confirm Your Reservation</div>
 
     <div class="content_holder">
-        <div class="reservation">
+       
             <p class="res_restaurant"> <%=@restaurant.name%> </p>
             <p class="res_date"> <%="#{params[:day]}/#{params[:month]}/#{params[:year]} at #{params[:hour]}:00."%> </p>
             <p class="res_size"> <%= params[:party_size] %> seats for <%= current_user.first_name %> <%= current_user.last_name %> </p>
@@ -22,12 +22,12 @@ Make reservation using the params and current_user! -->
                 <%= f.hidden_field(:restaurant_id, value: params[:restaurant_id]) %>
                 
                 <%= link_to user_path(@current_user.id) do %>
-                <div class="button_container">
+                <div class="confirm_res">
                     <%= f.submit do %>
-                        <div class="res_button"> Confirm Reservation </div>
+                        Confirm Reservation
                     <% end %>
                 </div>
                 <% end %>
             <% end %>
-        </div>
+      
     </div>
