@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122041524) do
+ActiveRecord::Schema.define(version: 20151124021814) do
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "party_size"
@@ -26,23 +26,34 @@ ActiveRecord::Schema.define(version: 20151122041524) do
     t.string   "address"
     t.string   "summary"
     t.string   "website"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "user_id"
     t.string   "photo"
     t.float    "rating"
     t.integer  "cost"
     t.string   "cuisine"
+    t.time     "open_time_monday"
+    t.time     "closed_time_monday"
+    t.time     "open_time_tuesday"
+    t.time     "closed_time_tuesday"
+    t.time     "open_time_wednesday"
+    t.time     "closed_time_wednesday"
+    t.time     "open_time_thursday"
+    t.time     "closed_time_thursday"
+    t.time     "open_time_friday"
+    t.time     "closed_time_friday"
+    t.time     "open_time_saturday"
+    t.time     "closed_time_saturday"
+    t.time     "open_time_sunday"
+    t.time     "closed_time_sunday"
   end
 
   create_table "tables", force: :cascade do |t|
     t.integer  "capacity"
-    t.datetime "timeslot"
-    t.boolean  "booked"
     t.integer  "restaurant_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "reservation_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
