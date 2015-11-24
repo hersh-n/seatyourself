@@ -5,12 +5,17 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :users do
-    resources :reservations, only: [:new, :create, :destroy, :show]
+    resources :reservations, only: [:destroy, :show]
   end
 
   resources :restaurants do
     resources :reservations, only: [:new, :create, :destroy, :show]
-    resources :tables, only: [:index, :create, :destroy, :show, :new]
+    resources :tables
+  end
+
+  resources :reservations do
+    resources :restaurants, only: [:show]
+    resources :users, only: [:show]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
