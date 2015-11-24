@@ -9,7 +9,7 @@
 
 #No relationships between these objects have been set.
 
-time = DateTime.new(2016, 1, 1, 19)
+time = DateTime.new(2015, 11, 27, 19)
 
 User.create(first_name:"Admin", last_name:"Istrator", email:"admin@app.com", password:"admin")
 tequila = Restaurant.create(name:"El Caballito Tequila Bar", address:"220 King Street W.", summary:"Tacos and Pitchers", website:"http://www.elcaballito.ca", rating:4.7, cuisine:"Mexican", cost:4, photo:"http://www.elcaballito.ca/wp-content/uploads/El-Patio-119-e1443114859678.jpg")

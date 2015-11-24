@@ -20,12 +20,10 @@
 <div class="spacer">
 </div>
 
-
 <div class="content">
 <h1 id="restaurant_name"><%= @restaurant.name %></h1>
-
   <% if params[:party_size].to_s.to_i <=  @restaurant.get_current_capacity(date) %>
-    <%=link_to "Reserve Now", new_restaurant_reservation_path(@restaurant, :party_size => params[:party_size], ), id: "reservation" %>
+    <%=link_to "Reserve Now", new_restaurant_reservation_path(@restaurant, :party_size => params[:party_size], :hour => params[:date][:hour], :day => params[:date][:day], :month => params[:date][:month], :year => params[:date][:year]), id: "reservation" %>
   <% else %>
     There isn't enough room for your party at the time above. Try another!
   <% end %>

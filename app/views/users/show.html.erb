@@ -1,31 +1,32 @@
 <div id="my_profile"> My Profile </div>
 
 <div class="content_holder">
-	
+
 	<p id="first"> <%= "#{@user.first_name}" %> <%= "#{@user.last_name}" %> </p>
 
-	<p id="myreservations"> My Reservations: </p>
+	<% if @user.reservations[0] == nil %>
+		<p id="myreservations"> No active reservations. </p>
+	<% else %>
+		<p id="myreservations"> My Reservations: </p>
+		<% @user.reservations.each do |reservation| %>
+			<div class="reservation">
+				<p class="res_restaurant"> <%=Restaurant.find(reservation.restaurant_id).name%> </p>
+				<p class="res_size"> <%=reservation.party_size%> Seats </p>
+				<p class="res_size"> <%="#{reservation.timeslot.day}/#{reservation.timeslot.month}/#{reservation.timeslot.year} at #{reservation.timeslot.hour}"%>:00</p>
 
-	<div class="reservation">
-		<p class="res_restaurant"> A Restaurant </p>
-		<p class="res_date"> Jan 1st 2016 </p>
-		<p class="res_time"> 7PM </p>
-		<p class="res_size"> 4 Seats </p>
+				<div class="button_container">
+					<%= link_to restaurant_path(Restaurant.find(reservation.restaurant_id), :date => {:day => reservation.timeslot.day, :month => reservation.timeslot.month, :year => reservation.timeslot.year, :hour => reservation.timeslot.hour}, :party_size => reservation.party_size ) do %>
+					<div class="res_button"> View Restaurant </div>
+					<% end %>
 
-		<div class="button_container">
-			<%= link_to restaurant_path(1) do %>
-			<div class="res_button"> View Restaurant </div>
-			<% end %>
-
-			<%= link_to user_path(@user.id) do %>
-			<div class="res_button" id="cancel"> Cancel Reservation </div>
-			<% end %>
-		</div>
-
-
-
-	</div>
+					<%= link_to restaurant_path(Restaurant.find(reservation.restaurant_id)) do %>
+					<div class="res_button" id="cancel"> Cancel Reservation </div>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
 
 	<p id="membersince"> Member Since: <%= "#{@user.created_at.to_date}" %> </p>
 
-</div> 
+</div>

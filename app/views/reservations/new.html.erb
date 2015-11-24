@@ -1,1 +1,29 @@
-Test
+<!-- Available params: :year, :month, :day, :hour, :party_size, :restaurant_id
+Make reservation using the params and current_user! -->
+
+<% @restaurant = Restaurant.find(params[:restaurant_id]) %>
+
+<div id="my_profile"> Confirm Your Reservation</div>
+
+    <div class="content_holder">
+        <div class="reservation">
+            <p class="res_restaurant"> <%=@restaurant.name%> </p>
+            <p class="res_date"> <%="#{params[:day]}/#{params[:month]}/#{params[:year]} at #{params[:hour]}:00."%> </p>
+            <p class="res_size"> <%= params[:party_size] %> seats for <%= current_user.first_name %> <%= current_user.last_name %> </p>
+
+            <%= form_for [@restaurant, @reservation] do |f| %>
+                <%= f.hidden_field(:user_id, value: current_user.id) %>
+                <%= f.hidden_field(:party_size, value: params[:party_size]) %>
+                <%= f.hidden_field(:year, value: params[:year]) %>
+                <%= f.hidden_field(:month, value: params[:month]) %>
+                <%= f.hidden_field(:day, value: params[:day]) %>
+                <%= f.hidden_field(:hour, value: params[:hour]) %>
+
+                <div class="button_container">
+                    <%= f.submit do %>
+                        <div class="res_button"> Confirm Reservation </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
