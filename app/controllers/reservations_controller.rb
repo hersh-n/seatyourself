@@ -9,14 +9,21 @@ class ReservationsController < ApplicationController
 	end
 
 	def new
-		@reservation = Reservation.new
+		if current_user
+			@reservation = Reservation.new
+		else
+			redirect_to new_session_path
+		end
 	end
 
 	def create
 		@reservation = Reservation.new(reservation_params)
-		@reservation.user  = current_user
+		@restaurant = Restaurant.find(params[:restaurant_id])
+		@party_size = params[:reservation][:party_size].to_i
+		@timeslot = DateTime.new(params[:reservation][:year].to_i, params[:reservation][:month].to_i, params[:reservation][:day].to_i, params[:reservation][:hour].to_i)
 		if @reservation.save
-			redirect_to reservations_path
+			@restaurant.book_tables(@restaurant.find_tables_for_party(@party_size, @timeslot), @reservation.id)
+			redirect_to restaurants_path
 		else
 			render :new
  		end
@@ -44,6 +51,6 @@ class ReservationsController < ApplicationController
 
 	private
 	def reservation_params
-		params.require(:reservation).permit(:party_size)
+		params.require(:reservation).permit(:party_size, :user_id, :restaurant_id, :timeslot)
 	end
 end
