@@ -16,7 +16,7 @@
 
 				<div class="button_container">
 					<%= link_to restaurant_path(Restaurant.find(reservation.restaurant_id), :date => {:day => reservation.timeslot.day, :month => reservation.timeslot.month, :year => reservation.timeslot.year, :hour => reservation.timeslot.hour}, :party_size => reservation.party_size ) do %>
-					<div class="res_button"> View Restaurant </div>
+					<div class="res_button">View Restaurant</div>
 					<% end %>
 
 					<%= link_to "Cancel Reservation", user_reservation_path(current_user, reservation), method: :delete, class: "res_button", id: "cancel"  %>

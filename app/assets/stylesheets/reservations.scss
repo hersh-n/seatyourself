@@ -161,13 +161,13 @@
     display: inline-block;
     color: white;
     transition:all 0.3s ease 0s;
-        a {
-        text-decoration: none;
-        }
+    text-decoration: none;
+
 }
 
 .res_button:hover {
     color: black;
+    text-decoration: none;
 }
 
 #cancel {
@@ -183,7 +183,7 @@
 }
 
 .confirm_res {
-    width: 100%; 
+    width: 100%;
     margin-bottom: 20px;
 
         input[type="submit"] {
